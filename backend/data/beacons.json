@@ -1,0 +1,32 @@
+{
+  "BEACON_OUTSIDE": {
+    "location": "Outside",
+    "x": 0.15,
+    "y": 0.82
+  },
+  "BEACON_LAB": {
+    "location": "Computer Lab 01",
+    "x": 0.27,
+    "y": 0.20
+  },
+  "BEACON_STAIRS": {
+    "location": "Stairs",
+    "x": 0.73,
+    "y": 0.20
+  },
+  "BEACON_WASHROOM": {
+    "location": "Washroom",
+    "x": 0.73,
+    "y": 0.79
+  },
+  "BEACON_CENTER_LEFT": {
+    "location": "Open Floor Left",
+    "x": 0.38,
+    "y": 0.50
+  },
+  "BEACON_CENTER_RIGHT": {
+    "location": "Open Floor Right",
+    "x": 0.62,
+    "y": 0.50
+  }
+}
