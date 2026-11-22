@@ -1,4 +1,6 @@
 import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 
 class UserPosition {
@@ -21,26 +23,18 @@ class UserPosition {
 
 class PositionService {
   // Android emulator -> Windows host
-  static const String baseUrl = 'http://10.0.2.2:5000';
+  static const String baseUrl = 'http://192.168.0.101:5000';
 
   static const String deviceId = 'user_001';
 
   Future<UserPosition?> getPosition() async {
     try {
       final response = await http
-          .get(
-            Uri.parse(
-              '$baseUrl/api/position/$deviceId',
-            ),
-          )
-          .timeout(
-            const Duration(seconds: 2),
-          );
+          .get(Uri.parse('$baseUrl/api/position/$deviceId'))
+          .timeout(const Duration(seconds: 2));
 
       if (response.statusCode != 200) {
-        print(
-          'Position API error: ${response.statusCode}',
-        );
+        debugPrint('Position API error: ${response.statusCode}');
         return null;
       }
 
@@ -60,11 +54,10 @@ class PositionService {
         rssi: position['rssi'] != null
             ? (position['rssi'] as num).toInt()
             : null,
-        confidence: (position['confidence'] as num)
-            .toDouble(),
+        confidence: (position['confidence'] as num).toDouble(),
       );
     } catch (e) {
-      print('Could not get position: $e');
+      debugPrint('Could not get position: $e');
       return null;
     }
   }
